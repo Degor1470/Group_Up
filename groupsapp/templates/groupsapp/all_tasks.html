@@ -4,21 +4,13 @@
 {% block content %}
         {% if authenticated %}
             {% if key_is_valid and user_is_valid %}
-                <ul class="list_group_task">
+                <div class="list_group_tasks_main_block">
                     {% for i in tasks %}
-                        <div class="group_all_tasks">
-                            <a href="{% url 'groups:task' id=i.id key=group_is.uuid%}" class="li_group_tasks">
-                                <li style="list-style-type: none;"  >
-                                <div class="content_group_tasks">{{ i.name }}</div>
-                                    <div id="toggles">
-                                        <input type="checkbox" name="checkbox1" id="checkbox1" class="ios-toggle" checked/>
-                                        <label for="checkbox1" class="checkbox-label" data-off="off" data-on="on"></label>
-                                    </div>
-                                </li>
-                            </a>
-                        </div>
+                        <a href="{% url 'groups:task' id=i.id key=group_is.uuid%}" class="group_all_tasks_block">
+                            <p class="group_all_tasks_main_text">{{ i.name }}</p>
+                        </a>
                     {% endfor %}
-                </ul>
+                </div>
             {% elif not user_is_valid %}
                 <div class="pass">
                     <p class="pass_text">You don't have access to this group</p>
