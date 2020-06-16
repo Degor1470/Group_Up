@@ -5,5 +5,5 @@ from authapp.models import CustomUser
 class Command(BaseCommand):
     def handle(self, *args, **options):
         CustomUser.objects.create_superuser(
-            'dgornin', 'dgornin@gmail.com', '200329', age=20
+            'devi', 'egorov.dima1470@gmail.com', '12345', age=20
         )
